@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" 
+    integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
   <title>Person List</title>
+  
+  <style>
+    body {
+      padding: 20px 
+    }
+  </style>
+  
 </head>
 <body>
 
   <h1>Person List</h1>
+  
+  <a class="pure-button" th:href="@{person/edit}">New person</a>
 
-  <table>
+  <table class="pure-table">
     <thead>
       <tr>
         <td>#</td>
@@ -22,14 +33,12 @@
       <tr th:each="person : ${persons}">
         <td th:text="${person.id}"></td>
         <td th:text="${person.name}"></td>
-        <td th:text="${person.birthday}"></td>
+        <td th:text="${#temporals.format(person.birthday, 'dd/MM/yyyy')}"></td>
         <td th:text="${person.height}"></td>
-        <td><a th:href="@{'person/edit/' + ${person.id}}">Edit person</a></td>
+        <td><a class="pure-button" th:href="@{'person/edit/' + ${person.id}}">Edit</a></td>
       </tr>
     </tbody>
   </table>
-  
-  <a th:href="@{person/edit}">New person</a>
-
+ 
 </body>
 </html>

@@ -2,6 +2,8 @@ package com.example.my_thymeleaf.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,7 @@ import com.example.my_thymeleaf.service.PersonService;
 @RequestMapping("person")
 public class PersonController {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(PersonController.class);
 	private static final String PERSON_LIST = "person/list";
 	private static final String PERSON_FORM = "person/form";
 	
@@ -49,7 +52,7 @@ public class PersonController {
 	
 	@PostMapping
 	public ModelAndView savePerson(PersonDto personDto) {
-		System.out.println(personDto);
+		LOGGER.info("Saving person: {}", personDto);
 		ModelAndView modelAndView = new ModelAndView("redirect:person");
 		personService.save(personDto);
 		return modelAndView;

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.my_thymeleaf.dto.PersonDto;
 import com.example.my_thymeleaf.entity.Person;
+import com.example.my_thymeleaf.exception.BusinessException;
 import com.example.my_thymeleaf.mapper.PersonMapper;
 import com.example.my_thymeleaf.repository.PersonRepository;
 
@@ -27,7 +28,7 @@ public class PersonService {
 	
 	public PersonDto getById(Long id) {
 		Person person = personRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException("Person not foun id: " + id));
+				.orElseThrow(() -> new BusinessException(String.format("Person with id %d not found.", id)));
 		return PersonMapper.map(person);
 	}
 	
