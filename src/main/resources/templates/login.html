@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(title='Login')}" />
+<body>
+
+  <div th:if="${param.error}">Invalid username and password.</div>
+  <div th:if="${param.logout}">You have been logged out.</div>
+
+  <form class="pure-form pure-form-stacked" method="post" th:action="@{/login}">
+    <label>User Name<input type="text" name="username"/></label>
+    <label>Password<input type="password" name="password"/></label>
+    <input class="pure-button" type="submit" value="Sign in"/>
+  </form>
+</body>
+</html>

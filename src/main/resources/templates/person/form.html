@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head (title='Person Form')"/>
+<head th:replace="~{fragments/head :: head(title='Person Form')}" />
 <body>
 
   <form class="pure-form pure-form-stacked" method="post" th:action="@{/person}" th:object="${person}">
