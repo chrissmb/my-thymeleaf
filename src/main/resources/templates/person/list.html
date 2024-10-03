@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: head(title='Person List')}" />
+<html>
+<head data-th-replace="~{fragments/head :: head(title='Person List')}" />
 <body>
 
   <h1>Person List</h1>
 
-  <a class="pure-button" th:href="@{person/edit}">New person</a>
+  <a class="pure-button" data-th-href="@{person/edit}">New person</a>
 
   <table class="pure-table">
     <thead>
@@ -18,17 +18,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr th:each="person : ${persons}">
-        <td th:text="${person.id}"></td>
-        <td th:text="${person.name}"></td>
-        <td th:text="${#temporals.format(person.birthday, 'dd/MM/yyyy')}"></td>
-        <td th:text="${person.height}"></td>
-        <td><a class="pure-button" th:href="@{'person/edit/' + ${person.id}}">Edit</a></td>
+      <tr data-th-each="person : ${persons}">
+        <td data-th-text="${person.id}"></td>
+        <td data-th-text="${person.name}"></td>
+        <td data-th-text="${#temporals.format(person.birthday, 'dd/MM/yyyy')}"></td>
+        <td data-th-text="${person.height}"></td>
+        <td><a class="pure-button" data-th-href="@{'person/edit/' + ${person.id}}">Edit</a></td>
       </tr>
     </tbody>
   </table>
  
-  <form th:action="@{/logout}" method="post">
+  <form data-th-action="@{/logout}" method="post">
     <input class="pure-button" type="submit" value="Sign out"/>
   </form> 
 </body>
