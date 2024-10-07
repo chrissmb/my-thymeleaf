@@ -3,25 +3,26 @@
 <head data-th-replace="~{fragments/head :: head(title='Person Form')}" />
 <body>
 
-  <form class="pure-form pure-form-stacked" method="post" data-th-action="@{/person}" data-th-object="${person}">
+  <form class="pure-form pure-form-stacked" method="post" data-th-action="@{/person}" data-th-object="${personDto}">
     <legend data-th-if="*{id} == null">New Person</legend>
     <legend data-th-if="*{id} != null">Edit Person</legend>
   
     <div data-th-if="*{id} != null">
       <label  for="id">Id</label>
-      <input type="text" data-th-value="*{id}" name="id" readonly/>
+      <input id="id" type="text" data-th-value="*{id}" name="id" readonly/>
     </div>
     <div>
       <label for="name">Name</label>
-      <input type="text" data-th-value="*{name}" name="name"/>
+      <input id="name" type="text" data-th-value="*{name}" name="name"/>
+      <div style="color:red;"><div data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Name Error</div></div>
     </div>
     <div>
       <label for="birthday">Birthday</label>
-      <input type="date" data-th-value="*{birthday}" name="birthday"/>
+      <input id="birthday" type="date" data-th-value="*{birthday}" name="birthday"/>
     </div>
     <div>
       <label for="height">Height</label>
-      <input type="number" data-th-value="*{height}" step=".01" name="height"/>
+      <input id="height" type="number" data-th-value="*{height}" step=".01" name="height"/>
     </div>
     
     <button class="pure-button" type="submit">Save</button>
