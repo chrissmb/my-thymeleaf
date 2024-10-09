@@ -3,7 +3,7 @@
 <head data-th-replace="~{fragments/head :: head(title='Person Form')}" />
 <body>
 
-  <form class="pure-form pure-form-stacked" method="post" data-th-action="@{/person}" data-th-object="${personDto}">
+  <form method="post" data-th-action="@{/person}" data-th-object="${personDto}">
     <legend data-th-if="*{id} == null">New Person</legend>
     <legend data-th-if="*{id} != null">Edit Person</legend>
   
@@ -14,7 +14,7 @@
     <div>
       <label for="name">Name</label>
       <input id="name" type="text" data-th-value="*{name}" name="name"/>
-      <div style="color:red;"><div data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Name Error</div></div>
+      <div class="error"><div data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Name Error</div></div>
     </div>
     <div>
       <label for="birthday">Birthday</label>

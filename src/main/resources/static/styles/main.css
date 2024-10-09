@@ -2,4 +2,44 @@
 
 body {
 	padding: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+form input,
+form button {
+	border: solid 1px #ccc;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+form label,
+form input,
+form button {
+	display: block;
+	margin: 10px 5px;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 10px 5px;
+}
+	
+table th,
+table td {
+	border: solid 1px #ccc;
+	padding: 10px;
+}
+
+table th {
+	background-color: #ddd;
+}
+
+legend {
+	font-weight: bold;
+	font-size: large;
+}
+
+.error {
+	color:red;
+	margin: 10px 5px;
 }

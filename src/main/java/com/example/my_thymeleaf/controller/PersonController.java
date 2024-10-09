@@ -52,13 +52,15 @@ public class PersonController implements WebMvcConfigurer {
 	}
 	
 	@PostMapping
-	public String savePerson(@Valid PersonDto personDto, BindingResult bindingResult) {
+	public ModelAndView savePerson(@Valid PersonDto personDto, BindingResult bindingResult) {
 		LOGGER.info("Saving person: {}", personDto);
 		if (bindingResult.hasErrors()) {
 			LOGGER.info("Person invalid: {}", bindingResult.getAllErrors());
-			return PERSON_FORM;
+			var mv = new ModelAndView(PERSON_FORM);
+			mv.addObject(personDto);
+			return mv;
 		}
 		personService.save(personDto);
-		return "redirect:person";
+		return new ModelAndView("redirect:person");
 	}
 }

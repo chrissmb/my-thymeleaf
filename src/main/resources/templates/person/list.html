@@ -10,11 +10,11 @@
   <table class="pure-table">
     <thead>
       <tr>
-        <td>#</td>
-        <td>Name</td>
-        <td>Birthday</td>
-        <td>Height</td>
-        <td></td>
+        <th>#</th>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Height</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -22,14 +22,14 @@
         <td data-th-text="${person.id}"></td>
         <td data-th-text="${person.name}"></td>
         <td data-th-text="${#temporals.format(person.birthday, 'dd/MM/yyyy')}"></td>
-        <td data-th-text="${person.height}"></td>
+        <td data-th-text="${#numbers.formatDecimal(person.height,1,2,'COMMA')}"></td>
         <td><a class="pure-button" data-th-href="@{'person/edit/' + ${person.id}}">Edit</a></td>
       </tr>
     </tbody>
   </table>
  
   <form data-th-action="@{/logout}" method="post">
-    <input class="pure-button" type="submit" value="Sign out"/>
+    <input type="submit" value="Sign out"/>
   </form> 
 </body>
 </html>

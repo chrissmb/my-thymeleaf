@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head data-th-replace="~{fragments/head :: head(title='Login')}" />
+<head data-th-replace="~{fragments/head :: head(title='Login')}"/>
 <body>
 
-  <div data-th-if="${param.error}">Invalid username and password.</div>
+  <div class="error" data-th-if="${param.error}">Invalid username and password.</div>
   <div data-th-if="${param.logout}">You have been logged out.</div>
 
-  <form class="pure-form pure-form-stacked" method="post" data-th-action="@{/login}">
-    <label>User Name<input type="text" name="username"/></label>
-    <label>Password<input type="password" name="password"/></label>
+  <form method="post" data-th-action="@{/login}">
+    <label for="username">User Name</label>
+    <input type="text" id="username" name="username"/>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password"/>
     <input class="pure-button" type="submit" value="Sign in"/>
   </form>
 </body>
