@@ -10,6 +10,12 @@ input, button, a {
 	border: solid 1px #ccc;
 	border-radius: 4px;
 	padding: 10px;
+	font-size: inherit;
+}
+
+input[type=text]:read-only:not(:disabled) {
+	color: gray;
+	background-color: whitesmoke;
 }
 
 button, a {

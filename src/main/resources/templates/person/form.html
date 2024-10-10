@@ -11,19 +11,17 @@
         <label  for="id">Id</label>
         <input id="id" type="text" data-th-value="*{id}" name="id" readonly/>
       </div>
-      <div>
-        <label for="name">Name</label>
-        <input id="name" type="text" data-th-value="*{name}" name="name"/>
-        <div class="error"><div data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Name Error</div></div>
-      </div>
-      <div>
-        <label for="birthday">Birthday</label>
-        <input id="birthday" type="date" data-th-value="*{birthday}" name="birthday"/>
-      </div>
-      <div>
-        <label for="height">Height</label>
-        <input id="height" type="number" data-th-value="*{height}" step=".01" name="height"/>
-      </div>
+
+      <label for="name">Name</label>
+      <input id="name" type="text" data-th-value="*{name}" name="name"/>
+      <div class="error"><div data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Name Error</div></div>
+
+      <label for="birthday">Birthday</label>
+      <input id="birthday" type="date" data-th-value="*{birthday}" name="birthday"/>
+
+      <label for="height">Height</label>
+      <input id="height" type="number" data-th-value="*{height}" step=".01" name="height"/>
+
       
       <button class="pure-button" type="submit">Save</button>
   </form>
